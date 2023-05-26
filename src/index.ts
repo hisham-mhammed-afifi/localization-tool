@@ -18,13 +18,17 @@ app.use(express.static(join(__dirname, "public")));
 app.use(express.json());
 
 // Error handler middleware
-app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  // Handle the error or send an error response
-  res.status(500).json({ error: "Internal Server Error" });
+// app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+//   // Handle the error or send an error response
+//   res.status(500).json({ error: "Internal Server Error" });
+// });
+
+app.get("/", (req: Request, res: Response) => {
+  res.status(200).json({ message: "Hello, this is my Localization tool" });
 });
 
 // Set up routes
-app.use("/", routes);
+app.use("/localization", routes);
 
 // Start the server
 app.listen(port, () => {
