@@ -1,9 +1,11 @@
 import "express-async-errors";
+import env from "dotenv";
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import { join } from "path";
 import routes from "./routes/localization.routes";
 
+env.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
